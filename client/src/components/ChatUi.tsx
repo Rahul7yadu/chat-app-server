@@ -9,7 +9,7 @@ const ChatUi = ({ text, senderId, userId, name, fileUrl }: { text: string, sende
         <Card className="">
           {name}{text}
           <CardContent >
-            <img src={`http://localhost:8000${fileUrl}`} className='w-40 h-60' />
+            <img src={`${fileUrl}`} className='w-40 h-60' />
           </CardContent>
         </Card>
       )
