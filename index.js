@@ -1,6 +1,7 @@
 
 const MessageModel = require("./models/Message")
 const path = require("path")
+const fs = require("fs")
 const { createServer } = require('node:http');
 const cors = require("cors")
 const multer = require('multer');
@@ -18,11 +19,18 @@ const io = new Server(server,{
   cors:"*"
 });
 
+if(!fs.existsSync("uploads")){
+  fs.mkdir("uploads",{recursive:true},(err)=>{
+    if(err) console.log("could not create folder")
+    else console.log("folder created")
+  })
+}
+
 const PORT = process.env.PORT||8000
 app.use(express.json())
 app.use(cors())
 
-connectDb()  
+ connectDb()  
 socket.initSocket(io);
 
 
