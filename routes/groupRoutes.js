@@ -27,14 +27,12 @@ const newGroup = new GroupModel({
 const fetchGroupById = async (req,res)=>{
   const id = req.params.id;
   console.log("req.params",req.params)
-  console.log(groupId)
   if(!id){
     return res.status(300).json({message:"please provide group id"})
   }
 
 const groupData = await GroupModel.findById(id)
 return res.json(groupData)
-console.log(groupData)
 }
 
 
