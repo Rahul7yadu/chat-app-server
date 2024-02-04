@@ -17,16 +17,24 @@ const fetchGroups = async (req,res)=>{
 const createGroups = async(req,res)=>{
     const {name,password} = req.body
 const newGroup = new GroupModel({
-        name,password
+        name
 })
   const groupData = await newGroup.save()
 
   res.json(groupData)
 }
 
-const fetchGroupById = (req,res)=>{
-  const groupId = req.params;
+const fetchGroupById = async (req,res)=>{
+  const {groupId} = req.params;
+  console.log("req.params",req.params)
   console.log(groupId)
+  if(!groupId){
+    return res.status(300).json({message:"please provide group id"})
+  }
+
+const groupData = await GroupModel.find({_id:groupId})
+return res.json(groupData)
+console.log(groupData)
 }
 
 

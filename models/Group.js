@@ -3,7 +3,7 @@ const mongoose = require("mongoose")
 const GroupSchema = mongoose.Schema({
     name:{type:String,required:true},
     chats:[{type:mongoose.Types.ObjectId,ref:"Message"}],
-    password:{type:String,required:true}
+    password:{type:String,}
 
 })
 

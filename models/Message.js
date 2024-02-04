@@ -5,7 +5,8 @@ const MessageSchema = mongoose.Schema({
     senderName:{type:String},
     text:{type:String,trim:true},
     group:{type:mongoose.Types.ObjectId,ref:"Group"},
-    fileUrl:{type:String}
+    fileUrl:{type:String},
+    audioUrl:{type:String}
 },{
     timestamps:true
 })
